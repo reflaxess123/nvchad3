@@ -84,4 +84,22 @@ return {
       })
     end,
   },
+  {
+    "karb94/neoscroll.nvim",
+    lazy = false,
+    config = function()
+      require("neoscroll").setup {
+        -- ты можешь включить/отключить что угодно тут
+        easing_function = "quadratic", -- стиль анимации: sine, cubic, etc.
+      }
+
+      local t = {}
+      t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "150" } }
+      t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "150" } }
+      t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "200" } }
+      t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "200" } }
+
+      require("neoscroll.config").set_mappings(t)
+    end,
+  },
 }
