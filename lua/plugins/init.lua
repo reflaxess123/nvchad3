@@ -45,12 +45,6 @@ return {
     config = true,
   },
   {
-    "ellisonleao/carbon-now.nvim", -- ← новый URL
-    cmd = "CarbonNow", -- грузим плагин только по команде
-    opts = {}, -- можешь сразу сунуть свои опции
-    -- пример: opts = { options = { theme = "solarized", font_size = "20px" } }
-  },
-  {
     "folke/noice.nvim",
     lazy = false,
     dependencies = {
@@ -61,7 +55,7 @@ return {
     config = function()
       require("noice").setup {
         notify = {
-          enabled = false, -- ⛔️ отключаем поддержку notify
+          enabled = false,
         },
       }
 
