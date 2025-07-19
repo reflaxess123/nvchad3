@@ -116,7 +116,7 @@ return {
       dimming = {
         alpha = 0.25, -- насколько затемнять (от 0 до 1)
         color = { "Normal", "#ffffff" },
-        inactive = true,
+        inactive = false,
       },
       context = 15, -- сколько строк вокруг текущего блока оставить яркими
     },
