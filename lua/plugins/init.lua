@@ -12,6 +12,13 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-lint",
+    lazy = false,
+    config = function()
+      require("configs.lint")
+    end,
+  },
+  {
 
     "folke/which-key.nvim",
     lazy = false,

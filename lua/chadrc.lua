@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "chadracula",
-  transparency = true,
+  theme = "chadracula-evondev",
+  -- transparency = true,
 
   hl_override = {
     Comment = { italic = true },
@@ -26,3 +26,4 @@ M.ui = {
 -- }
 
 return M
+
