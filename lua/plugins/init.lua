@@ -45,12 +45,6 @@ return {
     config = true,
   },
   {
-    "ellisonleao/carbon-now.nvim", -- ← новый URL
-    cmd = "CarbonNow",             -- грузим плагин только по команде
-    opts = {},                     -- можешь сразу сунуть свои опции
-    -- пример: opts = { options = { theme = "solarized", font_size = "20px" } }
-  },
-  {
     "folke/noice.nvim",
     lazy = false,
     dependencies = {
@@ -100,18 +94,5 @@ return {
 
       require("neoscroll.config").set_mappings(t)
     end,
-  },
-  {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-
-    -- For `nvim-treesitter` users.
-    priority = 49,
-
-    -- For blink.cmp's completion
-    -- source
-    -- dependencies = {
-    --     "saghen/blink.cmp"
-    -- },
   },
 }
