@@ -26,7 +26,15 @@ return {
   {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
-    config = true,
+    config = function()
+      vim.env.SHELL = "cmd.exe"
+      require("claudecode").setup({
+        terminal_cmd = "cmd /c claude",
+        terminal = {
+          provider = "native"
+        }
+      })
+    end,
     keys = {
       { "<leader>a",  nil,                              desc = "AI/Claude Code" },
       { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
@@ -103,3 +111,4 @@ return {
     end,
   },
 }
+
