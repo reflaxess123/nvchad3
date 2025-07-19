@@ -24,6 +24,7 @@ local servers = {
   yamlls = {},
   dockerls = {},
   ruff = {},
+  gopls = {},
   lua_ls = {
     settings = {
       Lua = {

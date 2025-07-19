@@ -1,6 +1,7 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
+    go = { "gofmt" },
     python = { "ruff_format" },
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
