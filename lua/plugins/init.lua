@@ -110,5 +110,18 @@ return {
       require("neoscroll.config").set_mappings(t)
     end,
   },
+  {
+    "folke/twilight.nvim",
+    opts = {
+      dimming = {
+        alpha = 0.25, -- насколько затемнять (от 0 до 1)
+        color = { "Normal", "#ffffff" },
+        inactive = true,
+      },
+      context = 15, -- сколько строк вокруг текущего блока оставить яркими
+    },
+    keys = {
+      { "<leader>tw", "<cmd>Twilight<CR>", desc = "Toggle Twilight" },
+    },
+  }
 }
-
