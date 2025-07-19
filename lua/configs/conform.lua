@@ -26,10 +26,13 @@ local options = {
     local diagnostics = vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.ERROR })
     if #diagnostics > 0 then
       -- Если есть ошибки, показываем уведомление и не форматируем
-      vim.notify("Форматирование пропущено из-за синтаксических ошибок", vim.log.levels.WARN)
+      vim.notify(
+        "Форматирование пропущено из-за синтаксических ошибок",
+        vim.log.levels.WARN
+      )
       return false
     end
-    
+
     return {
       timeout_ms = 500,
       lsp_fallback = true,

@@ -61,7 +61,7 @@ return {
     config = function()
       require("noice").setup {
         notify = {
-          enabled = false, -- ⛔️ отключаем поддержку notify
+          enabled = false,
         },
       }
 
@@ -95,8 +95,23 @@ return {
       t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "150" } }
       t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "200" } }
       t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "200" } }
+      t["<ScrollWheelUp>"] = { "scroll", { "-3", "true", "100" } }
+      t["<ScrollWheelDown>"] = { "scroll", { "3", "true", "100" } }
 
       require("neoscroll.config").set_mappings(t)
     end,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    -- For `nvim-treesitter` users.
+    priority = 49,
+
+    -- For blink.cmp's completion
+    -- source
+    -- dependencies = {
+    --     "saghen/blink.cmp"
+    -- },
   },
 }
