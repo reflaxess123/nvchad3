@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
   theme = "chadracula-evondev",
-  -- transparency = true,
+  transparency = true,
 
   hl_override = {
     Comment = { italic = true },
@@ -24,5 +24,11 @@ M.ui = {
 -- M.nvdash = {
 --   load_on_startup = true
 -- }
+
+M.plugins = {
+  ["folke/noice.nvim"] = {
+    enabled = false,
+  },
+}
 
 return M

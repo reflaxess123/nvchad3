@@ -60,54 +60,20 @@ return {
     config = true,
   },
   {
-    "folke/noice.nvim",
-    lazy = false,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-cmdline",
-    },
-    config = function()
-      require("noice").setup {
-        notify = {
-          enabled = false,
-        },
-      }
-
-      local cmp = require "cmp"
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "cmdline" },
-        },
-      })
-
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
-    end,
-  },
-  {
-    "karb94/neoscroll.nvim",
+    "gelguy/wilder.nvim",
     lazy = false,
     config = function()
-      require("neoscroll").setup {
-        -- ты можешь включить/отключить что угодно тут
-        easing_function = "quadratic", -- стиль анимации: sine, cubic, etc.
+      local wilder = require("wilder")
+      wilder.setup {
+        modes = { ":", "/", "?" },
       }
-
-      local t = {}
-      t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "150" } }
-      t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "150" } }
-      t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "200" } }
-      t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "200" } }
-      t["<ScrollWheelUp>"] = { "scroll", { "-3", "true", "100" } }
-      t["<ScrollWheelDown>"] = { "scroll", { "3", "true", "100" } }
-
-      require("neoscroll.config").set_mappings(t)
+      wilder.set_option("renderer", wilder.popupmenu_renderer(wilder.popupmenu_palette_theme {
+        border = "rounded",
+        highlights = {
+          default = wilder.make_hl("Pmenu", "Normal"),
+          selection = wilder.make_hl("PmenuSel", "PmenuSel"),
+        },
+      }))
     end,
   },
   {
