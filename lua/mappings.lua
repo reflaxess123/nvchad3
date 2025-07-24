@@ -18,13 +18,13 @@ map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostic mess
 -- Переключение inline диагностики
 local function toggle_virtual_text()
   local config = vim.diagnostic.config()
-  vim.diagnostic.config({
-    virtual_text = not config.virtual_text
-  })
+  vim.diagnostic.config {
+    virtual_text = not config.virtual_text,
+  }
   print("Virtual text: " .. (config.virtual_text and "disabled" or "enabled"))
 end
 
 map("n", "<leader>dt", toggle_virtual_text, { desc = "Toggle inline diagnostic text", silent = true })
 
 -- Claude Code toggle
-map({ "n", "i", "v", "t" }, "<C-l>", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude", silent = true, noremap = true })
+map({ "n", "i", "v", "t" }, "<C-;>", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude", silent = true, noremap = true })
