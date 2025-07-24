@@ -12,6 +12,11 @@ M.base46 = {
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+    -- Волнистое подчеркивание для диагностики
+    DiagnosticUnderlineError = { undercurl = true, sp = "red" },
+    DiagnosticUnderlineWarn = { undercurl = true, sp = "orange" },
+    DiagnosticUnderlineInfo = { undercurl = true, sp = "blue" },
+    DiagnosticUnderlineHint = { undercurl = true, sp = "green" },
   },
 }
 
@@ -30,5 +35,22 @@ M.plugins = {
     enabled = false,
   },
 }
+
+-- Настройка диагностики LSP
+vim.diagnostic.config({
+  virtual_text = false, -- Отключаем inline ошибки
+  underline = true, -- Включаем подчеркивание
+  signs = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
+-- Принудительно устанавливаем волнистое подчеркивание
+vim.cmd([[
+  hi DiagnosticUnderlineError gui=undercurl guisp=red cterm=undercurl
+  hi DiagnosticUnderlineWarn gui=undercurl guisp=yellow cterm=undercurl  
+  hi DiagnosticUnderlineInfo gui=undercurl guisp=blue cterm=undercurl
+  hi DiagnosticUnderlineHint gui=undercurl guisp=green cterm=undercurl
+]])
 
 return M
