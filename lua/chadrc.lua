@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "chadracula-evondev",
+  theme = "ashes",
   transparency = true,
 
   hl_override = {
