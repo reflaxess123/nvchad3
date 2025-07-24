@@ -25,3 +25,6 @@ local function toggle_virtual_text()
 end
 
 map("n", "<leader>dt", toggle_virtual_text, { desc = "Toggle inline diagnostic text", silent = true })
+
+-- Claude Code toggle
+map({ "n", "i", "v", "t" }, "<C-l>", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude", silent = true, noremap = true })
